@@ -10,11 +10,18 @@ class Profile extends CI_Controller{
 	function index(){
 		$records = $this->session->userdata('records');
 
+		foreach($records as $r){
+			$first = $r->first_name;
+			$last = $r->last_name;
+			$email = $r->email;
+		}
+
 		$data = array(
 			'content' => 'view_profile',
-			'records' => $records
+			'first_name' => $first,
+			'last_name' => $last,
+			'email' => $email
 		);
-
 		$this->load->view('includes/template', $data);
 	}
 
