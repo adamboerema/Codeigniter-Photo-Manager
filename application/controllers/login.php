@@ -19,9 +19,13 @@ class Login extends CI_Controller{
 
 			$user_records = $this->model_user->get_user_data($this->input->post('username'));
 
+			foreach($user_records as $ur){
+				$records = $ur;
+			}
+
 			$session_data = array(
 				'username'=>$this->input->post('username'),
-				'records'=> $user_records,
+				'records'=> $records,
 				'logged_in'=>true
 			);
 
